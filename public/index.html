@@ -1,0 +1,14 @@
+<html ng-app="peopleApp">
+<head>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <script type="text/javascript" src="/bower_components/angular/angular.js"></script>
+  <script type="text/javascript" src="/javascript/main.js"></script>
+</head>
+<body ng-controller="PeopleListCtrl">
+  <table class="table">
+    <tr ng-repeat="key in people.keys">
+      <td ng-repeat="value in people.values[key]">{{value}}</td>
+    </tr>
+  </table>
+  <button ng-click="transpose()">Transpose</button>
+</body>

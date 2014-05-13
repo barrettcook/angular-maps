@@ -1,0 +1,7 @@
+{
+  "name": "angular-maps",
+  "dependencies": {
+    "coffee-script": "^1.7.1",
+    "express": "^4.2.0"
+  }
+}
