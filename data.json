@@ -1,49 +1,8 @@
-{
-  "0": {
-    "first": "Fred",
-    "last": "Flintstone",
-    "number": "1150",
-    "street":"Market Street",
-    "city": "San Francisco",
-    "state": "CA"
-  },
-  "1": {
-    "first": "Usher",
-    "number": "211",
-    "street": "South Beverly Drive",
-    "city": "Beverly Hills",
-    "state": "CA"
-  },
-  "2": {
-    "first": "Donald",
-    "last": "Trump",
-    "street": "Trump Plaza Entryway",
-    "city": "Atlantic City",
-    "state": "NJ"
-  },
-  "3": {
-    "first": "Barack",
-    "last": "Obama",
-    "number": "1600",
-    "street": "Pennsylvania Avenue",
-    "city": "Washington",
-    "state": "DC"
-  },
-  "4": {
-    "first": "Michael",
-    "last": "Bloomberg",
-    "number": "1600",
-    "street": "Broadway",
-    "city": "New York",
-    "state": "NY"
-  },
-  "5": {
-    "first": "Sergey",
-    "last": "Brin",
-    "number": "1600",
-    "street": "Amphitheatre Parkway",
-    "city": "Mountain View",
-    "state": "CA"
-  }
-}
-
+[
+  ["Fred", "Flintstone", "1150", "Market Street", "San Francisco", "CA"],
+  ["Usher", "", "211", "South Beverly Drive", "Beverly Hills", "CA"],
+  ["Donald", "Trump", "", "Trump Plaza Entryway", "Atlantic City", "NJ"],
+  ["Barack", "Obama", "1600", "Pennsylvania Avenue", "Washington", "DC"],
+  ["Michael", "Bloomberg", "1600", "Broadway", "New York", "NY"],
+  ["Sergey", "Brin", "1600", "Amphitheatre Parkway", "Mountain View", "CA"]
+]

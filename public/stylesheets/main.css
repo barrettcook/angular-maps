@@ -10,7 +10,7 @@ body {
 #header {
   background-color: #222;
   color: white;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 #footer {
   position: fixed;
@@ -18,6 +18,26 @@ body {
   width: 100%;
   color: #666;
   font-size: 9pt;
+}
+#header button {
+  float: right;
+}
+
+button {
+  outline: none;
+  border: 1px solid #AAA;
+  border-radius: 5px;
+  padding: 7px;
+  font-size: 9pt;
+  background-color: white;
+  margin-top: -6px; /* gross. no bootstrap */
+}
+button:hover {
+  cursor: pointer;
+  background-color: #EEE;
+}
+button:active {
+  background-color: #AAA;
 }
 
 table {
@@ -33,19 +53,6 @@ td:hover {
   cursor: pointer;
 }
 
-button {
-  outline: none;
-  border: 1px solid #AAA;
-  border-radius: 5px;
-  padding: 7px;
-  font-size: 9pt;
-  background-color: white;
-}
-button:hover {
-  cursor: pointer;
-  background-color: #38ACEC;
-  color: white;
-}
-button:active {
-  border: 1px solid #EEE;
+#map-canvas {
+  height: 60%;
 }

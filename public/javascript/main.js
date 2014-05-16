@@ -1,39 +1,54 @@
-var peopleApp = angular.module('peopleApp', []);
+var app = angular.module('app', []);
 
-peopleApp.controller('PeopleListCtrl', function ($scope, $http) {
+app.controller('PeopleListCtrl', function ($scope, $http) {
+  $scope.keys = ['First Name', 'Last Name', 'Street No.', 'Street Address', 'City', 'State']
+
   $http.get('json').success(function(data) {
-    var keys = [];
-    angular.forEach(data, function(person, index) {
-      if (keys.indexOf(index) === -1)
-        keys.push(index);
-    });
-
-    $scope.people = {
-      keys: keys,
-      values: data
-    };
+    $scope.data = data;
   });
 
   $scope.transpose = function() {
-    var keys = [];
-    angular.forEach($scope.people.values, function(person) {
-      angular.forEach(person, function(value, key) {
-        if (keys.indexOf(key) === -1)
-          keys.push(key);
+    var result = [];
+    angular.forEach($scope.keys, function(key, i) {
+      result[i] = [];
+      angular.forEach($scope.data, function(row) {
+        result[i].push(row[i]);
       });
     });
-
-    var result = {};
-    angular.forEach(keys, function(key) {
-      result[key] = {};
-      angular.forEach($scope.people.values, function(person, index) {
-        result[key][index] = person[key];
-      });
-    });
-    $scope.people = {
-      keys: keys,
-      values: result
-    };
+    $scope.data = result;
+    $scope.transposed = !$scope.transposed;
   };
 
+  // TODO: Pass in 'google' global as a dependency
+  var geocoder = new google.maps.Geocoder();
+  var mapOptions = {
+    center: new google.maps.LatLng(37.665875,-122.3982572),
+    zoom: 12
+  };
+  var map = new google.maps.Map(document.getElementById("map-canvas"),
+      mapOptions);
+
+  $scope.map = function() {
+    var address = [];
+    if (this.transposed) {
+      for (var i = 2; i < $scope.keys.length; i++) {
+        address.push($scope.data[i][this.$index]);
+      }
+    } else {
+      address = this.$parent.row.slice(2);
+    }
+    address = address.join(' ');
+
+    geocoder.geocode( { 'address': address }, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        map.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+        });
+      } else {
+        console.log("Geocode failed: " + status);
+      }
+    });
+  };
 });
